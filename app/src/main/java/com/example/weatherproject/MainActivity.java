@@ -19,8 +19,9 @@ public class MainActivity extends AppCompatActivity implements Utilities {
         setContentView(R.layout.activity_main);
         myElem = findViewById(R.id.textElem);
 
+        // load localities variable with local json content
         readJson(getApplicationContext(), localities);
 
-        myElem.setText(localities.get("Timişoara")[0]);
+//        myElem.setText(localities.get("Timişoara")[0]);
     }
 }
