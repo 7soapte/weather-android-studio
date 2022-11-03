@@ -1,27 +1,52 @@
 package com.example.weatherproject;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-import android.widget.TextView;
-import java.util.HashMap;
-
 public class MainActivity extends AppCompatActivity implements Utilities {
-
-    // We make a hashmap so we can access the coordinates of a given locality
-    // Hashmap skeleton: "Bucuresti":[lat,lng], "Timisoare":[lat,lng]
-    HashMap<String, String[]> localities = new HashMap<>();
-    TextView myElem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        myElem = findViewById(R.id.textElem);
 
         // load localities variable with local json content
-        readJson(getApplicationContext(), localities);
+        initLocalities(getApplicationContext());
 
-//        myElem.setText(localities.get("Timişoara")[0]);
+        // load weatherDictionary variable with local json content
+        initWeatherDictionary(getApplicationContext());
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_dropdown_item_1line,
+                localities.keySet().toArray(new String[localities.size()])
+        );
+        AutoCompleteTextView textView = findViewById(R.id.autoComplete);
+        textView.setAdapter(adapter);
+
+        Button grabWeather = findViewById(R.id.grabWeather);
+        AutoCompleteTextView autoComplete = findViewById(R.id.autoComplete);
+
+        grabWeather.setOnClickListener(view -> {
+            String inputText = autoComplete.getText().toString();
+
+            if (localities.keySet().contains(inputText)) {
+                openCardView();
+                Toast.makeText(this, weatherDictionary.get("61"), Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, weatherDictionary.get("61"), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void openCardView() {
+        Intent intent = new Intent(this, WeatherCard.class);
+        startActivity(intent);
     }
 }

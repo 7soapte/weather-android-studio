@@ -1,0 +1,54 @@
+[
+  {
+    "code":[0],
+    "text": "Cer senin"
+  },
+  {
+    "code":[1,2,3],
+    "text": "Partial noros"
+  },
+  {
+    "code":[45,48],
+    "text": "Ceata"
+  },
+  {
+    "code":[51,53,55],
+    "text": "Ploaie marunta"
+  },
+  {
+    "code":[56,57],
+    "text": "Ploaie marunta si rece"
+  },
+  {
+    "code":[61,63,65],
+    "text": "Ploaie"
+  },
+  {
+    "code":[66,67],
+    "text": "Ploaie rece"
+  },
+  {
+    "code":[71,73,75],
+    "text": "Ninsoare"
+  },
+  {
+    "code":[77],
+    "text": "Fulguieste"
+  },
+  {
+    "code":[80,81,82],
+    "text": "Ploaie abundenta"
+  },
+  {
+    "code":[85,86],
+    "text": "Ninsoare abundenta"
+  },
+  {
+    "code":[95],
+    "text": "Furtuna"
+  },
+  {
+    "code":[96,99],
+    "text": "ROalert de apocalipsa"
+  }
+]
