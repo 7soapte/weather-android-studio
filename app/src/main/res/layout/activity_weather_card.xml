@@ -16,6 +16,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="21dp"
         android:background="@drawable/rounded_bg"
+        android:backgroundTint="@color/grey"
         android:orientation="vertical"
         android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,23 +24,72 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_baseline_chevron_left_24"
+            android:contentDescription="Go back button" />
+
         <ImageView
             android:id="@+id/weatherImg"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/ic_anim_heavy_rain"
-            android:contentDescription="Dynamic weather image" />
+            android:layout_marginTop="30dp"
+            android:contentDescription="Dynamic weather image"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_launcher_background" />
 
         <TextView
-            android:id="@+id/minTemp"
+            android:id="@+id/weatherStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/weatherImg"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"
-            android:text="## C"
+            android:text="status"
             android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/maxTemp"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/weatherStatus"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:text="maxTemp"
+            android:textAlignment="textEnd"
+            android:textSize="25sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/maxTemp"
+            android:layout_toStartOf="@+id/maxTemp"
+            android:text="Max " />
+
+        <TextView
+            android:id="@+id/minTemp"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/maxTemp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="minTemp"
+            android:textAlignment="textEnd"
+            android:textSize="25sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/minTemp"
+            android:layout_toStartOf="@+id/minTemp"
+            android:text="Min " />
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

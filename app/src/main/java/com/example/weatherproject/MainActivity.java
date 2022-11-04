@@ -38,16 +38,17 @@ public class MainActivity extends AppCompatActivity implements Utilities {
 
             if (localities.containsKey(inputText)) {
                 errMsg.setText("");
-                autoComplete.setText("");
-                openCardView();
+                String[] coords = localities.get(inputText);
+                openCardView(coords);
             } else {
                 errMsg.setText("Localitatea introdusa nu exista, te rugam introdu o localitate valida.");
             }
         });
     }
 
-    public void openCardView() {
+    public void openCardView(String[] coords) {
         Intent intent = new Intent(this, WeatherCard.class);
+        intent.putExtra("coords", coords);
         startActivity(intent);
     }
 }
