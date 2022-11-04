@@ -31,16 +31,25 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:background="@null"
+            android:contentDescription="Go back button"
             android:scaleType="fitXY"
-            android:src="@drawable/ic_baseline_chevron_left_24"
-            android:contentDescription="Go back button" />
+            android:src="@drawable/ic_baseline_chevron_left_24" />
+
+        <TextView
+            android:id="@+id/currentDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="Current day"
+            android:textSize="20sp"/>
 
         <ImageView
             android:id="@+id/weatherImg"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:contentDescription="Dynamic weather image"
             android:scaleType="fitXY"
             android:src="@drawable/ic_launcher_background" />
@@ -51,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/weatherImg"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="0dp"
             android:text="status"
             android:textSize="30sp" />
 
@@ -61,8 +70,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/weatherStatus"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="25dp"
-            android:text="maxTemp"
+            android:layout_marginTop="15dp"
+            android:text="max"
             android:textAlignment="textEnd"
             android:textSize="25sp" />
 
@@ -80,7 +89,7 @@
             android:layout_below="@+id/maxTemp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
-            android:text="minTemp"
+            android:text="min"
             android:textAlignment="textEnd"
             android:textSize="25sp" />
 
@@ -90,6 +99,12 @@
             android:layout_alignBaseline="@+id/minTemp"
             android:layout_toStartOf="@+id/minTemp"
             android:text="Min " />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/weatherDaysRecView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"/>
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

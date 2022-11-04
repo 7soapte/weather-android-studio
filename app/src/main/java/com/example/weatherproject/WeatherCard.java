@@ -12,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,14 +25,17 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class WeatherCard extends AppCompatActivity implements Utilities {
     String[] httpCoords;
+    private RecyclerView daysRecView;
     private ImageView image;
     private TextView maxTemp;
+    private TextView currentDay;
     private TextView minTemp;
     private TextView weatherStatus;
 
@@ -42,8 +47,10 @@ public class WeatherCard extends AppCompatActivity implements Utilities {
         image = findViewById(R.id.weatherImg);
         maxTemp = findViewById(R.id.maxTemp);
         minTemp = findViewById(R.id.minTemp);
+        currentDay = findViewById(R.id.currentDay);
         weatherStatus = findViewById(R.id.weatherStatus);
         ImageButton backBtn = findViewById(R.id.backBtn);
+        daysRecView = findViewById(R.id.weatherDaysRecView);
 
         Intent intent = getIntent();
         httpCoords = intent.getStringArrayExtra("coords");
@@ -76,9 +83,39 @@ public class WeatherCard extends AppCompatActivity implements Utilities {
         String dynamicStatus = weatherDictionary.get(daily.get("weathercode").get(0).toString()).get("text");
 
         runOnUiThread(() -> {
+            currentDay.setText("Astazi");
             minTemp.setText(String.format("%s %s", currentMinTemperature, suffixMin));
             maxTemp.setText(String.format("%s %s", currentMaxTemperature, suffixMax));
             weatherStatus.setText(dynamicStatus);
+
+            //set out recyclerview for the future days
+            // grab data we need and populate our ArraList for our adapter
+            ArrayList<DayItem> days = new ArrayList<>();
+
+            // skip out first item aka our current item
+            for (int i = 1; i < daily.get("temp_min").length(); i++) {
+                // Adding to our DayItem class
+                // String minTemp, String maxTemp, String day, String img
+                try {
+                    String forMinTemp = daily.get("temp_min").getString(i);
+                    String forMaxTemp = daily.get("temp_max").getString(i);
+                    String forDay = daily.get("time").getString(i);
+                    String forImg = weatherDictionary.get(daily.get("weathercode").get(i).toString()).get("icon");
+                    int forImgId = WeatherCard.this.getResources().getIdentifier(forImg, "drawable", getPackageName());
+                    String finalTemp = "Min " + forMaxTemp + " " + suffixMax + " Max " + forMinTemp + " " + suffixMin;
+
+                    days.add(new DayItem(finalTemp, forDay, forImgId));
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                DaysRecyclerViewAdapter adapter = new DaysRecyclerViewAdapter();
+                adapter.setFutureDays(days);
+
+                daysRecView.setAdapter(adapter);
+                daysRecView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+            }
+            // end future days
 
             // init dynamic gif and animate it
             int id = WeatherCard.this.getResources().getIdentifier(dynamicIcon, "drawable", getPackageName());
