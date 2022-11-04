@@ -28,7 +28,8 @@
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/ic_launcher_background" />
+            android:src="@drawable/ic_anim_heavy_rain"
+            android:contentDescription="Dynamic weather image" />
 
         <TextView
             android:id="@+id/minTemp"
@@ -38,7 +39,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"
             android:text="## C"
-            android:textSize="30dp" />
+            android:textSize="30sp" />
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,62 @@
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    <aapt:attr name="android:drawable">
+        <vector
+            android:name="sun"
+            android:width="32dp"
+            android:height="28dp"
+            android:viewportWidth="65"
+            android:viewportHeight="60">
+            <path
+                android:name="circle"
+                android:fillColor="#ffa500"
+                android:fillType="evenOdd"
+                android:pathData="M 16 9 C 14.674 9 13.402 9.527 12.464 10.464 C 11.527 11.402 11 12.674 11 14 C 11 15.326 11.527 16.598 12.464 17.536 C 13.402 18.473 14.674 19 16 19 C 17.326 19 18.598 18.473 19.536 17.536 C 20.473 16.598 21 15.326 21 14 C 21 12.674 20.473 11.402 19.536 10.464 C 18.598 9.527 17.326 9 16 9 Z"
+                android:strokeWidth="1"
+                android:strokeColor="#ffa500" />
+            <group android:name="rays">
+                <path
+                    android:name="rays_1"
+                    android:pathData="M 16 23 L 16 26 M 9.636 20.364 L 7.515 22.485 M 7 14 L 4 14 M 9.636 7.636 L 7.515 5.515 M 16 5 L 16 2 M 22.364 7.636 L 24.485 5.515 M 25 14 L 28 14 M 22.364 20.364 L 24.485 22.485"
+                    android:strokeWidth="1"
+                    android:strokeColor="#ffa500"
+                    android:strokeLineCap="round" />
+            </group>
+            <path
+                android:name="cloud_bottom"
+                android:fillColor="#57a0ee"
+                android:pathData="M 43.7 22.4 C 43.7 17.8 40 14.2 35.5 14.2 C 34.5 14.2 33.6 14.4 32.7 14.7 C 32.4 11.3 29.6 8.5 26.1 8.5 C 22.4 8.5 19.4 11.5 19.4 15.2 C 19.4 16 19.6 16.8 19.8 17.5 C 19.5 17.4 19.1 17.4 18.8 17.4 C 15.1 17.4 12.1 20.4 12.1 24.1 C 12.1 27.7 15 30.7 18.6 30.8 L 35.8 30.8 C 40.2 30.3 43.7 26.8 43.7 22.4 Z"
+                android:strokeWidth="1"
+                android:strokeColor="#ffffff" />
+        </vector>
+    </aapt:attr>
+    <target android:name="rays">
+        <aapt:attr name="android:animation">
+            <set>
+                <objectAnimator
+                    android:duration="5000"
+                    android:interpolator="@android:interpolator/linear"
+                    android:propertyName="rotation"
+                    android:repeatCount="infinite"
+                    android:repeatMode="restart"
+                    android:valueFrom="0"
+                    android:valueTo="180"
+                    android:valueType="floatType" />
+                <objectAnimator
+                    android:duration="1"
+                    android:interpolator="@android:interpolator/linear"
+                    android:propertyName="pivotX"
+                    android:valueFrom="16"
+                    android:valueTo="16"
+                    android:valueType="floatType" />
+                <objectAnimator
+                    android:duration="1"
+                    android:interpolator="@android:interpolator/linear"
+                    android:propertyName="pivotY"
+                    android:valueFrom="14"
+                    android:valueTo="14"
+                    android:valueType="floatType" />
+            </set>
+        </aapt:attr>
+    </target>
+</animated-vector>

@@ -18,7 +18,7 @@ interface Utilities {
 
     // Make hasmap to interpret API weather codes
     // EX: "1": "Partial noros"
-    HashMap<String, String> weatherDictionary = new HashMap<>();
+    HashMap<String, HashMap<String, String>> weatherDictionary = new HashMap<>();
 
     default void initLocalities(Context context) {
         String json;
@@ -61,7 +61,10 @@ interface Utilities {
                 JSONArray code = obj.getJSONArray("code");
 
                 for (int j = 0; j < code.length(); j++) {
-                    weatherDictionary.put(code.getString(j), obj.getString("text"));
+                    HashMap<String, String> temp = new HashMap<>();
+                    temp.put("text", obj.getString("text"));
+                    temp.put("icon", obj.getString("icon"));
+                    weatherDictionary.put(code.getString(j), temp);
                 }
             }
 

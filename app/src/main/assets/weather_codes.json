@@ -1,43 +1,53 @@
 [
   {
     "code":[0],
-    "text": "Cer senin"
+    "text": "Cer senin",
+    "icon": "ic_anim_sunny.xml"
   },
   {
     "code":[1,2,3],
-    "text": "Partial noros"
+    "text": "Partial noros",
+    "icon": "ic_anim_cloudy_day.xml"
   },
   {
     "code":[45,48],
-    "text": "Ceata"
+    "text": "Ceata",
+    "icon": "ic_anim_fog.xml"
   },
   {
     "code":[51,53,55],
-    "text": "Ploaie marunta"
+    "text": "Ploaie marunta",
+    "icon": "ic_anim_rainy.xml"
   },
   {
     "code":[56,57],
-    "text": "Ploaie marunta si rece"
+    "text": "Ploaie marunta si rece",
+    "icon": "ic_anim_rainy.xml"
   },
   {
     "code":[61,63,65],
-    "text": "Ploaie"
+    "text": "Ploaie",
+    "icon": "ic_anim_rainy.xml"
   },
   {
     "code":[66,67],
-    "text": "Ploaie rece"
+    "text": "Ploaie rece",
+    "icon": "ic_anim_rainy.xml"
   },
   {
     "code":[71,73,75],
-    "text": "Ninsoare"
+    "text": "Ninsoare",
+    "icon": "ic_anim_snowy.xml"
   },
   {
     "code":[77],
-    "text": "Fulguieste"
+    "text": "Fulguieste",
+    "icon": "ic_anim_snowy.xml"
   },
   {
     "code":[80,81,82],
-    "text": "Ploaie abundenta"
+    "text": "Ploaie abundenta",
+    "icon": "ic_anim_heavy_rain.xml"
   },
   {
     "code":[85,86],
@@ -45,10 +55,12 @@
   },
   {
     "code":[95],
-    "text": "Furtuna"
+    "text": "Furtuna",
+    "icon": "ic_anim_heavy_rain.xml"
   },
   {
     "code":[96,99],
-    "text": "ROalert de apocalipsa"
+    "text": "ROalert de apocalipsa",
+    "icon": "ic_anim_heavy_rain.xml"
   }
 ]

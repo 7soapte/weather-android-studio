@@ -1,0 +1,100 @@
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    <aapt:attr name="android:drawable">
+        <vector
+            android:name="fog"
+            android:width="56dp"
+            android:height="48dp"
+            android:viewportWidth="56"
+            android:viewportHeight="48">
+            <group android:name="line1">
+                <path
+                    android:name="line1_1"
+                    android:fillColor="#57a0ee"
+                    android:pathData="M 7 18 L 10 18 M 12 18 L 43 18"
+                    android:strokeWidth="1"
+                    android:strokeColor="#57a0ee"
+                    android:strokeLineCap="round" />
+            </group>
+            <group android:name="line2">
+                <path
+                    android:name="line2_1"
+                    android:fillColor="#000"
+                    android:pathData="M 7 23 L 24 23 M 26 23 L 32 23"
+                    android:strokeWidth="1"
+                    android:strokeColor="#57a0ee"
+                    android:strokeLineCap="round" />
+            </group>
+            <group android:name="line3_1">
+                <path
+                    android:name="line3"
+                    android:fillColor="#000"
+                    android:pathData="M 7 28 L 19 28 M 21 28 L 38 28"
+                    android:strokeWidth="1"
+                    android:strokeColor="#57a0ee"
+                    android:strokeLineCap="round" />
+            </group>
+            <group android:name="line4_1">
+                <path
+                    android:name="line4"
+                    android:fillColor="#000"
+                    android:pathData="M 7 33 L 14 33 M 16 33 L 28 33 M 30 33 L 42 33"
+                    android:strokeWidth="1"
+                    android:strokeColor="#57a0ee"
+                    android:strokeLineCap="round" />
+            </group>
+        </vector>
+    </aapt:attr>
+    <target android:name="line1">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="3000"
+                android:interpolator="@android:interpolator/linear"
+                android:propertyName="translateX"
+                android:repeatCount="infinite"
+                android:repeatMode="reverse"
+                android:valueFrom="0"
+                android:valueTo="5"
+                android:valueType="floatType" />
+        </aapt:attr>
+    </target>
+    <target android:name="line2">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="6000"
+                android:interpolator="@android:interpolator/linear"
+                android:propertyName="translateX"
+                android:repeatCount="infinite"
+                android:repeatMode="reverse"
+                android:valueFrom="0"
+                android:valueTo="16"
+                android:valueType="floatType" />
+        </aapt:attr>
+    </target>
+    <target android:name="line3_1">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="4000"
+                android:interpolator="@android:interpolator/linear"
+                android:propertyName="translateX"
+                android:repeatCount="infinite"
+                android:repeatMode="reverse"
+                android:valueFrom="0"
+                android:valueTo="10"
+                android:valueType="floatType" />
+        </aapt:attr>
+    </target>
+    <target android:name="line4_1">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="5000"
+                android:interpolator="@android:interpolator/linear"
+                android:propertyName="translateX"
+                android:repeatCount="infinite"
+                android:repeatMode="reverse"
+                android:valueFrom="0"
+                android:valueTo="6"
+                android:valueType="floatType" />
+        </aapt:attr>
+    </target>
+</animated-vector>

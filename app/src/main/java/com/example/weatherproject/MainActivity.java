@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,25 +22,26 @@ public class MainActivity extends AppCompatActivity implements Utilities {
         // load weatherDictionary variable with local json content
         initWeatherDictionary(getApplicationContext());
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_dropdown_item_1line,
-                localities.keySet().toArray(new String[localities.size()])
+                localities.keySet().toArray(new String[0])
         );
-        AutoCompleteTextView textView = findViewById(R.id.autoComplete);
-        textView.setAdapter(adapter);
+        AutoCompleteTextView autoComplete = findViewById(R.id.autoComplete);
+        autoComplete.setAdapter(adapter);
 
         Button grabWeather = findViewById(R.id.grabWeather);
-        AutoCompleteTextView autoComplete = findViewById(R.id.autoComplete);
+        TextView errMsg = findViewById(R.id.errMsg);
 
         grabWeather.setOnClickListener(view -> {
             String inputText = autoComplete.getText().toString();
 
-            if (localities.keySet().contains(inputText)) {
+            if (localities.containsKey(inputText)) {
+                errMsg.setText("");
+                autoComplete.setText("");
                 openCardView();
-                Toast.makeText(this, weatherDictionary.get("61"), Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, weatherDictionary.get("61"), Toast.LENGTH_SHORT).show();
+                errMsg.setText("Localitatea introdusa nu exista, te rugam introdu o localitate valida.");
             }
         });
     }
